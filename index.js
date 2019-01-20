@@ -45,5 +45,11 @@ app.post('/voice', (req, res) => {
   res.send(twiml.toString());
 });
 
-http.createServer(app).listen(process.env.port || 3000);
-console.log('Twilio Client app server running at port: 3000');
+http.createServer(app).listen(process.env.PORT || 3000, (err) => {
+  if (err) {
+    console.log(err);
+  }
+  else {
+    console.log('Twilio Client app server running at port: 3000');
+  }
+});
